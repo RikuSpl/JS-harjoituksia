@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fi">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="maindiv">
+
+        <div class="inputdiv">
+            <input class="inputfield" id="inputfield1" type="number" placeholder="insert first number here">
+            <span>+</span>
+            <input class="inputfield" id="inputfield2" type="number" placeholder="insert second number here">
+            <button class="btn" id="btn">submit</button>
+        </div>
+        <div class="textdiv">
+            <p class="textfield" id="textfield"></p>
+        </div>
+
+    </div>
+
+    <script>
+
+        const userValueOne = document.getElementById("inputfield1");
+        const userValueTwo = document.getElementById("inputfield2");
+        const textField = document.getElementById("textfield")
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click", sumOf)
+
+
+        function sumOf() {
+            const sum = parseInt(userValueOne.value) + parseInt(userValueTwo.value);
+            textField.innerHTML = "the sum of your numbers is: " + sum;
+        }
+
+    </script>
+
+</body>
+</html>

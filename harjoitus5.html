@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="inputdiv">
+            <input class="inputfield" id="input1" type="number" placeholder="enter a number">
+            <input class="inputfield" id="input2" type="number" placeholder="enter a number">
+            <button class="btn" id="btn">submit</button>
+        </div>
+        <div class="textdiv">
+            <p class="textfield" id="textfield">
+                <p id="num"></p>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const input1 = document.querySelector("#input1")
+        const input2 = document.querySelector("#input2")
+        const btn = document.querySelector("#btn")
+        const text = document.querySelector("#textfield")
+        const num = document.querySelector("#num")
+        
+        btn.addEventListener("click", checker)
+
+        function checker() {
+            text.style.color = "black"
+
+            const sum = Number(input1.value) + Number(input2.value);
+
+            if(sum >= 25 && sum <= 75) {
+                text.textContent = "ok"
+                text.style.color = "lightgreen"
+            } else if(sum < 25) {
+                text.textContent = "liian pieni"
+                text.style.color = "lightblue"
+            } else if(sum > 75) {
+                text.textContent = "liian suuri"
+                text.style.color = "red"
+            } else {
+                text.textContent = "jotain meni pieleen"
+            }
+        }
+    </script>
+</body>
+</html>

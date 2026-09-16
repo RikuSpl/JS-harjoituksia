@@ -1,0 +1,55 @@
+:root {
+    --accent-color: rgb(255, 183, 195);
+    --hover-accent: rgb(255, 188, 111);
+}
+
+body {
+    background-color: rgb(58, 57, 57);
+    color: white;
+}
+
+.maindiv {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textfield {
+    font-size: 20px;
+}
+
+.inputfield {
+    display: flex;
+    width: 300px;
+    background-color: rgb(33, 33, 33);
+    border: solid 2px var(--accent-color);
+    border-radius: 8px;
+    padding: 5px;
+    color: white;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+
+.inputfield:focus {
+    outline: none;
+}
+
+
+.btn {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--accent-color);
+    border: solid 2px var(--accent-color);
+    padding: 5px 9px;
+    border-radius: 6px;
+    margin-left: 8px;
+}
+
+.btn:hover {
+    border: solid 2px var(--hover-accent);
+}

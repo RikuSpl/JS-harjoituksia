@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fi">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="maindiv">
+
+        <div class="inputdiv">
+            <input class="inputfield" id="inputfield1" type="text">
+            <input class="inputfield" id="inputfield2" type="text">
+            <button class="btn" id="btn">submit</button>
+        </div>
+        <div class="textdiv">
+            <p class="textfield" id="textfield"></p>
+        </div>
+
+    </div>
+
+    <script>
+
+        const sentence = document.getElementById("inputfield1");
+        const letter = document.getElementById("inputfield2");
+        const textField = document.getElementById("textfield")
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click", letterCounter)
+
+        function letterCounter() {
+
+            let letterValue = letter.value;
+            let sentenceValue = sentence.value;
+            let counter = 0;
+
+            for(let i = 0; i < sentenceValue.length; i++) {
+                if(sentenceValue[i] == letterValue) {
+                    counter++;
+                }
+            }
+
+            textField.innerHTML = `the letter "${letterValue}" appears ${counter} times in your sentence`;
+
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

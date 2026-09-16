@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="inputdiv">
+            <input class="inputfield" type="number" placeholder="enter a number">
+            <button class="btn" id="btn">submit</button>
+        </div>
+        <div style="display: flex" class="textdiv">
+            <p class="textfield" id="textfield"></p>
+            <p id="num"></p>
+        </div>
+    </div>
+
+    <script>
+        const input = document.querySelector("input")
+        const btn = document.querySelector("#btn")
+        const text = document.querySelector("#textfield")
+        const num = document.querySelector("#num")
+        
+        btn.addEventListener("click", checker)
+
+        function checker() {
+            inputV = Number(input.value)
+            console.log(inputV)
+            if(inputV > -11 && inputV < 11) {
+                text.textContent = `ok`;
+                num.textContent = inputV;
+                num.style.color = "lightgreen"
+            } else if (inputV <= -11) {
+                text.textContent = "liian pieni"
+            } else {
+                text.innerHTML = "liian suuri"
+            }
+        }
+    </script>
+</body>
+</html>

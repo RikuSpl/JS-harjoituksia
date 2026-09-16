@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="maindiv">
+
+        <div class="inputdiv">
+            <input class="inputfield" id="inputfield" type="text" placeholder="insert number here">
+            <button class="btn" id="btn">submit</button>
+        </div>
+        <div class="textdiv">
+            <p class="textfield" id="textfield"></p>
+        </div>
+    </div>
+
+    <script>
+
+        const textField = document.getElementById("textfield");
+        const inputField = document.getElementById("inputfield");
+        const btn = document.getElementById("btn");
+        
+        btn.addEventListener("click", multiplication);
+
+        function multiplication() {
+
+            const v = inputField.value;
+
+            let tempStr = ""
+
+            for(let i = 1; i < 11; i++) {
+                if(i > 9) {
+                    tempStr += "ja " + parseInt(v) * i;
+                }else{
+                    tempStr += parseInt(v) * i + " ";
+                }
+
+            }
+
+            textfield.innerHTML = tempStr
+
+        }
+
+    </script>
+
+</body>
+</html>

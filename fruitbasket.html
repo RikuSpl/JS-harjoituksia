@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="maindiv">
+
+        <div class="inputdiv">
+            <div>
+                <label for="inputfield1">Fruit</label>
+                <input class="inputfield" id="inputfield1" type="text" placeholder="insert your fruit here">
+            </div>
+            <div>
+                <label for="inputfield2">price (€/kg)</label>
+                <input class="inputfield" id="inputfield2" type="text" placeholder="insert price per kilogram here">
+            </div>
+            <div>
+                <label for="inputfield3">weight in kgs</label>
+                <input class="inputfield" id="inputfield3" type="text" placeholder="insert weight here">
+            </div>
+            <button class="btn" id="submitbtn">submit</button>
+        </div>
+        <div class="textdiv">
+            <p class="textfield" id="textfield"></p>
+        </div>
+        <div>
+            <button class="btn" id="calcbtn">calculate price</button>
+        </div>
+        <div class="textdiv">
+            <p class="textfield" id="textfield2"></p>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const fruit = document.getElementById("inputfield1");
+        const price = document.getElementById("inputfield2");
+        const weight = document.getElementById("inputfield3");
+        const submitbtn = document.getElementById("submitbtn");
+        const textArea = document.getElementById("textfield");
+        const textArea2 = document.getElementById("textfield2");
+        const calcbtn = document.getElementById("calcbtn");
+
+        let fruitBasket = [];
+
+        submitbtn.addEventListener("click", arrPush)
+        calcbtn.addEventListener("click", calcPrice)
+
+        function Fruit(fruitName, fruitPrice, fruitWeight) {
+            this.fruit = fruitName;
+            this.price = fruitPrice;
+            this.weight = fruitWeight;
+        }
+
+        function arrPush() {
+            const newFruit = new Fruit(fruit.value, price.value, weight.value); 
+            fruitBasket.push(newFruit);
+            textArea.innerHTML += "added fruit: " + fruit.value + "<br>";
+        }
+
+        function calcPrice() {
+            let total = 0;
+
+            for(let i = 0; i < fruitBasket.length; i++){
+            total += fruitBasket[i].price * fruitBasket[i].weight;
+            } 
+
+            textArea2.innerHTML = "your fruitbasket costs a total of: " + total + "€";
+            
+        }
+
+
+    </script>
+
+</body>
+</html>
