@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="maindiv">
+
+        <input class="inputfield" type="text" id="input1">
+        <input class="inputfield" type="text" id="input2">
+        <button class="btn" id="btn">submit</button>
+
+        <p id="textfield" class="textfield"></p>
+    </div>
+
+    <script>
+        const text = document.querySelector("#textfield");
+        const v1 = document.querySelector("#input1");
+        const v2 = document.querySelector("#input2");
+        const btn = document.querySelector("#btn")
+
+        btn.addEventListener("click", printer)
+        
+        function printer() {
+
+            const max = Number(v1.value);
+            const jump = Number(v2.value);
+
+            if(max < 20 || max > 100) {
+                return text.textContent = "invalid input"
+            }
+
+            if(jump < 2 || jump > 5) {
+                return text.textContent = "invalid input"
+            }
+
+
+            for(let i = 0; i<=max; i += jump) {
+                text.textContent += `${i} `
+            }
+        }
+
+    </script>
+</body>
+</html>

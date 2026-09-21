@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="maindiv">
+        <button id="btn">Luo</button>
+    </div>
+
+
+    <script>
+        const btn = document.querySelector("#btn")
+        const maindiv = document.querySelector("#maindiv")
+        let CSS_COLORS = ['aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure', 'beige', 'bisque', 'black',  'white', 'whitesmoke', 'yellow', 'yellowgreen'];
+
+        btn.addEventListener("click", createBtn)
+
+
+        function createBtn() {
+            const newBtn = document.createElement("button")
+            newBtn.textContent = "Tuhoa"
+            newBtn.style.color = CSS_COLORS[Math.floor(Math.random() * CSS_COLORS.length)]
+            maindiv.appendChild(newBtn)
+            newBtn.addEventListener("click", function () {newBtn.remove()})
+        }
+
+        
+    </script>
+</body>
+</html>

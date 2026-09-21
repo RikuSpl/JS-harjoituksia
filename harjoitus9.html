@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="maindiv">
+        <div class="inputdiv">
+            <input class="inputfield" id="input1" type="text" placeholder="enter car brand">
+            <input class="inputfield" id="input2" type="text" placeholder="enter your cars color">
+            <input class="inputfield" id="input3" type="text" placeholder="enter owner name">
+            <input class="inputfield" id="input4" type="text" placeholder="enter your cars weight">
+            <button class="btn" id="btn">Tallenna auto</button>
+        </div>
+        <div class="textdiv">
+            <p class="textfield" id="textfield">
+                
+            </p>
+            
+        </div>
+
+        <p id="print"></p>
+    </div>
+
+    <script>
+        const brand = document.querySelector("#input1")
+        const color = document.querySelector("#input2")
+        const ownerName = document.querySelector("#input3")
+        const weight = document.querySelector("#input4")
+        const btn = document.querySelector("#btn")
+        const textField = document.querySelector("#textfield")
+        const print = document.querySelector("#print")  
+
+        btn.addEventListener("click", buildObject);
+
+        let cars = []
+        let carId = []
+
+
+        function newCar(carBrand, carColor, carName, carWeight) {
+            this.brand = carBrand;
+            this.color = carColor;
+            this.name = carName;
+            this.weight = carWeight;
+            this.carInfo = function() {
+                return print.innerHTML = `Auton omistaja on ${this.name}. Se painaa ${this.weight} ja on väriltään ${this.color}`
+            }
+        }
+    
+
+        function buildObject() {
+            const car = new newCar(
+            brand.value,
+            color.value,
+            ownerName.value,
+            weight.value
+        );
+
+        cars.push(car);
+
+        const btn = document.createElement("button");
+
+        btn.textContent = `Car ${cars.length}`;
+        
+        btn.addEventListener("click", function () {
+            print.innerHTML = `
+                Auton omistaja on ${car.name}. 
+                Se painaa ${car.weight} 
+                ja on väriltään ${car.color}.`;
+        });
+
+        textField.appendChild(btn);
+            
+        }
+
+
+    </script>
+
+</body>
+</html>
